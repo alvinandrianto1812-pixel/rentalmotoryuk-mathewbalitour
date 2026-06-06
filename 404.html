@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Halaman Tidak Ditemukan | Mathew Bali</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href="logo/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Tenor+Sans&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --gold: #c9a84c;
+        --gold-light: #e8c97a;
+        --motor-primary: #e85d04;
+        --tour-primary: #0b6e4f;
+        --dark-bg: #080808;
+        --dark-card: #161616;
+        --dark-border: rgba(255,255,255,0.07);
+        --text-primary: rgba(255,255,255,0.92);
+        --text-secondary: rgba(255,255,255,0.55);
+        --font-display: 'Cormorant Garamond', serif;
+        --font-title: 'Tenor Sans', sans-serif;
+        --font-body: 'DM Sans', sans-serif;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+      body {
+        font-family: var(--font-body);
+        background: var(--dark-bg);
+        color: var(--text-primary);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+      }
+
+      /* Ambient gradient background */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 60% 50% at 20% 30%, rgba(232,93,4,0.06) 0%, transparent 60%),
+          radial-gradient(ellipse 50% 60% at 80% 70%, rgba(11,110,79,0.06) 0%, transparent 60%),
+          radial-gradient(ellipse 40% 40% at 50% 50%, rgba(201,168,76,0.04) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* Animated grid overlay */
+      body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+        background-size: 60px 60px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .container-404 {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        padding: 2rem;
+        max-width: 600px;
+      }
+
+      .gif-wrap {
+        width: 280px;
+        height: 200px;
+        margin: 0 auto 0;
+        background: url('https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif') center/contain no-repeat;
+        position: relative;
+      }
+
+      .num-404 {
+        font-family: var(--font-display);
+        font-size: clamp(5rem, 18vw, 9rem);
+        font-weight: 700;
+        line-height: 1;
+        color: transparent;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--motor-primary) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        letter-spacing: -0.02em;
+        margin-top: -2rem;
+        animation: pulse404 3s ease-in-out infinite;
+      }
+
+      @keyframes pulse404 {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.75; }
+      }
+
+      .title-404 {
+        font-family: var(--font-title);
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-primary);
+        margin-top: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .desc-404 {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+        font-weight: 300;
+      }
+
+      .gold-line {
+        width: 60px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        margin: 1.25rem auto;
+      }
+
+      .btns-404 {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-home {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 28px;
+        background: linear-gradient(135deg, var(--gold), #a07828);
+        color: #000;
+        font-family: var(--font-body);
+        font-size: 0.88rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 100px;
+        transition: all 0.3s ease;
+      }
+      .btn-home:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(201,168,76,0.35);
+      }
+
+      .btn-ghost-404 {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 28px;
+        background: transparent;
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        font-size: 0.88rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 100px;
+        border: 1px solid rgba(255,255,255,0.15);
+        transition: all 0.3s ease;
+      }
+      .btn-ghost-404:hover {
+        border-color: rgba(255,255,255,0.35);
+        background: rgba(255,255,255,0.05);
+      }
+
+      .btn-wa-404 {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 28px;
+        background: #25D366;
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 0.88rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        border-radius: 100px;
+        transition: all 0.3s ease;
+      }
+      .btn-wa-404:hover {
+        background: #1ebe5d;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(37,211,102,0.3);
+      }
+
+      /* Floating ornaments */
+      .orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.12;
+        pointer-events: none;
+        animation: floatOrb 8s ease-in-out infinite;
+      }
+      .orb-1 { width: 300px; height: 300px; background: var(--motor-primary); top: -80px; left: -80px; animation-delay: 0s; }
+      .orb-2 { width: 250px; height: 250px; background: var(--tour-primary); bottom: -60px; right: -60px; animation-delay: -4s; }
+      .orb-3 { width: 180px; height: 180px; background: var(--gold); top: 50%; left: 50%; transform: translate(-50%,-50%); animation-delay: -2s; }
+
+      @keyframes floatOrb {
+        0%, 100% { transform: translateY(0) scale(1); }
+        50% { transform: translateY(-20px) scale(1.05); }
+      }
+      .orb-3 { animation: floatOrbCenter 8s ease-in-out infinite; }
+      @keyframes floatOrbCenter {
+        0%, 100% { transform: translate(-50%,-50%) scale(1); }
+        50% { transform: translate(-50%,-55%) scale(1.08); }
+      }
+
+      .brand-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        margin-bottom: 2rem;
+        opacity: 0.6;
+        transition: opacity 0.2s;
+      }
+      .brand-link:hover { opacity: 1; }
+      .brand-link img { width: 28px; height: 28px; border-radius: 50%; }
+      .brand-link span {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        color: var(--gold);
+        letter-spacing: 0.05em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <div class="container-404">
+      <a href="index.html" class="brand-link">
+        <img src="logo/rentalmotoryuk-circle.png" alt="Mathew Bali" />
+        <span>Mathew Bali</span>
+      </a>
+
+      <div class="gif-wrap"></div>
+
+      <div class="num-404">404</div>
+
+      <div class="gold-line"></div>
+
+      <h1 class="title-404">Halaman Tidak Ditemukan</h1>
+      <p class="desc-404">
+        Sepertinya halaman yang kamu cari sudah berpindah,<br />
+        atau mungkin belum pernah ada. Tidak perlu khawatir —<br />
+        kita kembali ke jalur yang benar!
+      </p>
+
+      <div class="btns-404">
+        <a href="index.html" class="btn-home">🏠 Kembali ke Beranda</a>
+        <a href="tour.html" class="btn-ghost-404">🌴 Lihat Paket Tour</a>
+        <a href="https://wa.me/6289669747910" target="_blank" class="btn-wa-404">💬 Hubungi Admin</a>
+      </div>
+    </div>
+  </body>
+</html>

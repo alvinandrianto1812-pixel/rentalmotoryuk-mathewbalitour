@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /order
+Disallow: /tour-order
+
+Sitemap: https://mathewbali.vercel.app/sitemap.xml

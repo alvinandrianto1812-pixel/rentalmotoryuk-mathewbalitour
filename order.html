@@ -1,0 +1,1181 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buat Order Sewa Motor - Rental Motor Yuk Bali</title>
+    <meta name="description" content="Buat order sewa motor Bali secara online. Pilih motor, durasi, add-ons, dan kirim langsung via WhatsApp ke Rental Motor Yuk." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="logo/favicon.svg" />
+    <link rel="shortcut icon" href="logo/favicon.svg" />
+    <link rel="apple-touch-icon" href="logo/rentalmotoryuk-circle.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mathewbali.vercel.app/order.html" />
+    <meta property="og:title" content="Buat Order Sewa Motor - Rental Motor Yuk Bali" />
+    <meta property="og:description" content="Pilih motor, tentukan durasi & add-ons, lalu kirim pesanan langsung ke WhatsApp. Cepat, mudah, tanpa ribet." />
+    <meta property="og:image" content="https://mathewbali.vercel.app/logo/rentalmotoryuk-circle.png" />
+    <meta property="og:image:width" content="400" />
+    <meta property="og:image:height" content="400" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Rental Motor Yuk" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Buat Order Sewa Motor - Rental Motor Yuk Bali" />
+    <meta name="twitter:image" content="https://mathewbali.vercel.app/logo/rentalmotoryuk-circle.png" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#E85D04" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Tenor+Sans&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Anti-flash theme init -->
+    <script>
+      (function(){var t=localStorage.getItem('mathewbali-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();
+    </script>
+  </head>
+  <body>
+    <!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-brand-logo" style="background:none;padding:0;">
+            <img src="logo/rentalmotoryuk-circle.png" alt="Rental Motor Yuk" style="width:36px;height:36px;object-fit:cover;border-radius:50%;">
+          </div>
+          <div class="nav-brand-text">
+            <span class="nav-brand-name">Rental Motor Yuk</span>
+            <span class="nav-brand-sub">Part of Mathew Bali Tour</span>
+          </div>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" id="nav-motor">🛵 Rental Motor</a></li>
+        <li><a href="tour.html" id="nav-tour">🌴 Bali Tour</a></li>
+        <li><a href="order.html" class="active-motor">📋 Buat Order</a></li>
+        <li>
+          <a
+            href="https://wa.me/6289669747910"
+            target="_blank"
+            class="nav-cta"
+            onclick="closeMenu()"
+            >WhatsApp</a
+          >
+        </li>
+              <li id="theme-toggle-wrap">
+          <div id="theme-toggle-track" onclick="toggleTheme()" title="Toggle light/dark mode">
+            <div id="theme-toggle-thumb"><span id="theme-toggle-icon">🌙</span></div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════
+     ORDER BUILDER
+══════════════════════════════════════ -->
+    <main
+      style="
+        padding: 120px 2rem 80px;
+        min-height: 100vh;
+        background: var(--dark-bg);
+      "
+    >
+      <div class="order-wrap">
+        <!-- Header -->
+        <div class="order-header">
+          <div
+            class="section-eyebrow eyebrow-motor"
+            style="justify-content: center"
+          >
+            📋 Order Online
+          </div>
+          <div class="gold-line center"></div>
+          <h1
+            style="
+              font-family: var(--font-display);
+              font-size: clamp(2rem, 4vw, 2.8rem);
+              font-weight: 600;
+              color: var(--white);
+              margin-bottom: 0.5rem;
+            "
+          >
+            Buat <em>Order</em> Sewa Motor
+          </h1>
+          <p style="color: var(--text-secondary); font-size: 0.9rem">
+            Isi form di bawah - pesan otomatis dikirim ke WhatsApp kami.
+          </p>
+
+          <!-- Progress bar -->
+          <div class="order-progress" id="orderProgress">
+            <div class="progress-step active" data-step="1">
+              <div class="progress-dot">1</div>
+              <div class="progress-label">Motor</div>
+            </div>
+            <div class="progress-step" data-step="2">
+              <div class="progress-dot">2</div>
+              <div class="progress-label">Durasi</div>
+            </div>
+            <div class="progress-step" data-step="3">
+              <div class="progress-dot">3</div>
+              <div class="progress-label">Add-ons</div>
+            </div>
+            <div class="progress-step" data-step="4">
+              <div class="progress-dot">4</div>
+              <div class="progress-label">Data Diri</div>
+            </div>
+            <div class="progress-step" data-step="5">
+              <div class="progress-dot">5</div>
+              <div class="progress-label">Ringkasan</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── STEP 1: Pilih Motor ── -->
+        <div class="order-step active" id="step1">
+          <div class="order-step-title">Pilih Motor</div>
+          <div class="order-step-sub">
+            Tap kartu motor yang ingin Anda sewa.
+          </div>
+
+          <div class="motor-selector-grid">
+            <div
+              class="motor-option"
+              data-motor="Scoopy FI"
+              data-harian="65000"
+              data-mingguan="390000"
+              data-bulanan="850000"
+              onclick="selectMotor(this)"
+            >
+              <span class="motor-option-icon">🛵</span>
+              <div class="motor-option-name">Honda Scoopy FI</div>
+              <div class="motor-option-cc">Matic · 110cc</div>
+              <div class="motor-option-price">Rp 65.000 / hari</div>
+            </div>
+            <div
+              class="motor-option"
+              data-motor="Scoopy ESP"
+              data-harian="75000"
+              data-mingguan="460000"
+              data-bulanan="1050000"
+              onclick="selectMotor(this)"
+            >
+              <span class="motor-option-icon">🛵</span>
+              <div class="motor-option-name">Honda Scoopy ESP</div>
+              <div class="motor-option-cc">Matic · 110cc</div>
+              <div class="motor-option-price">Rp 75.000 / hari</div>
+            </div>
+            <div
+              class="motor-option"
+              data-motor="Genio"
+              data-harian="75000"
+              data-mingguan="460000"
+              data-bulanan="1050000"
+              onclick="selectMotor(this)"
+            >
+              <span class="motor-option-icon">🛵</span>
+              <div class="motor-option-name">Honda Genio</div>
+              <div class="motor-option-cc">Matic · 110cc</div>
+              <div class="motor-option-price">Rp 75.000 / hari</div>
+            </div>
+            <div
+              class="motor-option"
+              data-motor="Vario 125cc"
+              data-harian="75000"
+              data-mingguan="460000"
+              data-bulanan="1050000"
+              onclick="selectMotor(this)"
+            >
+              <span class="motor-option-icon">⚡</span>
+              <div class="motor-option-name">Honda Vario 125cc</div>
+              <div class="motor-option-cc">Matic · 125cc</div>
+              <div class="motor-option-price">Rp 75.000 / hari</div>
+            </div>
+            <div
+              class="motor-option"
+              data-motor="Freego"
+              data-harian="80000"
+              data-mingguan="490000"
+              data-bulanan="1100000"
+              onclick="selectMotor(this)"
+            >
+              <span class="motor-option-icon">🏍️</span>
+              <div class="motor-option-name">Yamaha Freego</div>
+              <div class="motor-option-cc">Matic · 125cc</div>
+              <div class="motor-option-price">Rp 80.000 / hari</div>
+            </div>
+            <div
+              class="motor-option"
+              data-motor="Gear 125cc"
+              data-harian="80000"
+              data-mingguan="490000"
+              data-bulanan="1100000"
+              onclick="selectMotor(this)"
+            >
+              <span class="motor-option-icon">🏍️</span>
+              <div class="motor-option-name">Yamaha Gear 125cc</div>
+              <div class="motor-option-cc">Matic · 125cc</div>
+              <div class="motor-option-price">Rp 80.000 / hari</div>
+            </div>
+            <div
+              class="motor-option"
+              data-motor="Vario 150cc"
+              data-harian="90000"
+              data-mingguan="560000"
+              data-bulanan="1250000"
+              onclick="selectMotor(this)"
+            >
+              <span class="motor-option-icon">⚡</span>
+              <div class="motor-option-name">Honda Vario 150cc</div>
+              <div class="motor-option-cc">Matic Sporty · 150cc</div>
+              <div class="motor-option-price">Rp 90.000 / hari</div>
+            </div>
+            <div
+              class="motor-option"
+              data-motor="Fazzio"
+              data-harian="90000"
+              data-mingguan="560000"
+              data-bulanan="1300000"
+              onclick="selectMotor(this)"
+            >
+              <span class="motor-option-icon">🔥</span>
+              <div class="motor-option-name">Yamaha Fazzio</div>
+              <div class="motor-option-cc">Matic · 125cc</div>
+              <div class="motor-option-price">Rp 90.000 / hari</div>
+            </div>
+            <div
+              class="motor-option"
+              data-motor="Vario 160cc"
+              data-harian="100000"
+              data-mingguan="625000"
+              data-bulanan="1400000"
+              onclick="selectMotor(this)"
+            >
+              <span class="motor-option-icon">⚡</span>
+              <div class="motor-option-name">Honda Vario 160cc</div>
+              <div class="motor-option-cc">Matic Premium · 160cc</div>
+              <div class="motor-option-price">Rp 100.000 / hari</div>
+            </div>
+            <div
+              class="motor-option"
+              data-motor="PCX 150cc"
+              data-harian="120000"
+              data-mingguan="700000"
+              data-bulanan="1600000"
+              onclick="selectMotor(this)"
+            >
+              <span class="motor-option-icon">👑</span>
+              <div class="motor-option-name">Honda PCX 150cc</div>
+              <div class="motor-option-cc">Matic Flagship · 150cc</div>
+              <div class="motor-option-price">Rp 120.000 / hari</div>
+            </div>
+          </div>
+
+          <div
+            id="step1-error"
+            style="
+              display: none;
+              color: #ff6b6b;
+              font-size: 0.85rem;
+              margin-bottom: 1rem;
+            "
+          >
+            ⚠️ Silakan pilih motor terlebih dahulu.
+          </div>
+
+          <div class="order-nav">
+            <div></div>
+            <button class="btn-next" onclick="goStep(2)">Pilih Durasi →</button>
+          </div>
+        </div>
+
+        <!-- ── STEP 2: Durasi ── -->
+        <div class="order-step" id="step2">
+          <div class="order-step-title">Durasi Sewa</div>
+          <div class="order-step-sub">Pilih tipe durasi dan jumlahnya.</div>
+
+          <div class="duration-type-toggle">
+            <button
+              class="toggle-btn active"
+              id="btn-harian"
+              onclick="setDurationType('harian')"
+            >
+              Harian
+            </button>
+            <button
+              class="toggle-btn"
+              id="btn-mingguan"
+              onclick="setDurationType('mingguan')"
+            >
+              Mingguan
+            </button>
+            <button
+              class="toggle-btn"
+              id="btn-bulanan"
+              onclick="setDurationType('bulanan')"
+            >
+              Bulanan
+            </button>
+          </div>
+
+          <div class="duration-input-wrap">
+            <span class="duration-label" id="duration-unit-label"
+              >Berapa hari?</span
+            >
+            <div class="duration-counter">
+              <button class="counter-btn" onclick="changeQty(-1)">−</button>
+              <span class="counter-num" id="durasiNum">1</span>
+              <button class="counter-btn" onclick="changeQty(1)">+</button>
+            </div>
+          </div>
+
+          <div class="price-preview-box" id="pricePreview">
+            <div>
+              <div class="price-preview-label" id="pricePreviewDesc">
+                Estimasi biaya sewa motor
+              </div>
+              <div
+                style="
+                  font-size: 0.78rem;
+                  color: var(--text-muted);
+                  margin-top: 2px;
+                "
+                id="pricePreviewNote"
+              ></div>
+            </div>
+            <div class="price-preview-value" id="pricePreviewVal">-</div>
+          </div>
+
+          <div class="order-nav">
+            <button class="btn-prev" onclick="goStep(1)">← Kembali</button>
+            <button class="btn-next" onclick="goStep(3)">
+              Pilih Add-ons →
+            </button>
+          </div>
+        </div>
+
+        <!-- ── STEP 3: Add-ons ── -->
+        <div class="order-step" id="step3">
+          <div class="order-step-title">Aksesori Tambahan</div>
+          <div class="order-step-sub">
+            Pilih aksesori yang ingin ditambahkan (opsional).
+          </div>
+
+          <div class="addon-checkbox-grid">
+            <div class="addon-check-item" id="addon-phoneholder" onclick="toggleAddon(this)">
+              <div class="addon-check-mark">✓</div>
+              <span class="addon-check-icon">📱</span>
+              <div class="addon-check-name">Phone Holder</div>
+              <div class="addon-check-price">Rp 10.000</div>
+            </div>
+            <div class="addon-check-item" id="addon-phonecloth" onclick="toggleAddon(this)">
+              <div class="addon-check-mark">✓</div>
+              <span class="addon-check-icon">🧻</span>
+              <div class="addon-check-name">Phone Cloth</div>
+              <div class="addon-check-price">Rp 5.000</div>
+            </div>
+            <div class="addon-check-item" id="addon-raincoat" onclick="toggleAddon(this)">
+              <div class="addon-check-mark">✓</div>
+              <span class="addon-check-icon">🧥</span>
+              <div class="addon-check-name">Rain Coat</div>
+              <div class="addon-check-price">Rp 10.000</div>
+            </div>
+            <div class="addon-check-item" id="addon-kidhelmet" onclick="toggleAddon(this)">
+              <div class="addon-check-mark">✓</div>
+              <span class="addon-check-icon">⛑️</span>
+              <div class="addon-check-name">Kid Helmet</div>
+              <div class="addon-check-price">Rp 20.000</div>
+            </div>
+            <div class="addon-check-item" id="addon-powerbank" onclick="toggleAddon(this)">
+              <div class="addon-check-mark">✓</div>
+              <span class="addon-check-icon">🔋</span>
+              <div class="addon-check-name">Power Bank</div>
+              <div class="addon-check-price" id="powerbank-price-label">
+                Rp 10.000 / hari
+              </div>
+            </div>
+            <div class="addon-check-item" id="addon-charger" onclick="toggleAddon(this)">
+              <div class="addon-check-mark">✓</div>
+              <span class="addon-check-icon">🔌</span>
+              <div class="addon-check-name">Charger HP</div>
+              <div class="addon-check-price">Rp 20.000</div>
+            </div>
+          </div>
+
+          <!-- Addon total preview -->
+          <div
+            class="price-preview-box"
+            id="addonPreview"
+            style="display: none"
+          >
+            <div class="price-preview-label">Total Add-ons</div>
+            <div class="price-preview-value" id="addonPreviewVal">Rp 0</div>
+          </div>
+
+          <div class="order-nav">
+            <button class="btn-prev" onclick="goStep(2)">← Kembali</button>
+            <button class="btn-next" onclick="goStep(4)">
+              Isi Data Diri →
+            </button>
+          </div>
+        </div>
+
+        <!-- ── STEP 4: Data Diri ── -->
+        <div class="order-step" id="step4">
+          <div class="order-step-title">Data Diri</div>
+          <div class="order-step-sub">Lengkapi informasi pemesanan Anda.</div>
+
+          <div class="order-form-group">
+            <label class="order-label" for="inputNama">Nama Penyewa</label>
+            <input
+              type="text"
+              id="inputNama"
+              class="order-input"
+              placeholder="Contoh: Budi Santoso"
+              oninput="clearFieldError('inputNama')"
+            />
+          </div>
+
+          <div class="order-input-row">
+            <div class="order-form-group">
+              <label class="order-label" for="inputTanggal"
+                >Tanggal Mulai</label
+              >
+              <input
+                type="date"
+                id="inputTanggal"
+                class="order-input"
+                onchange="
+                  updateEndDate();
+                  clearFieldError('inputTanggal');
+                "
+              />
+            </div>
+            <div class="order-form-group">
+              <label class="order-label" for="inputJam">Jam Mulai</label>
+              <input
+                type="time"
+                id="inputJam"
+                class="order-input"
+                value="10:00"
+                onchange="updateEndDate()"
+              />
+            </div>
+          </div>
+
+          <!-- Tanggal selesai (readonly, auto-calculated) -->
+          <div class="order-form-group">
+            <label class="order-label">Tanggal Selesai (Otomatis)</label>
+            <div
+              id="tanggalSelesaiBox"
+              style="
+                background: var(--dark-card);
+                border: 1px solid var(--gold-border);
+                border-radius: 12px;
+                padding: 12px 16px;
+                font-size: 0.9rem;
+                color: var(--gold);
+                font-family: var(--font-display);
+                font-weight: 600;
+                min-height: 46px;
+                display: flex;
+                align-items: center;
+              "
+            >
+              <span
+                id="tanggalSelesaiText"
+                style="
+                  color: var(--text-muted);
+                  font-family: var(--font-body);
+                  font-weight: 400;
+                  font-size: 0.85rem;
+                "
+              >
+                Isi tanggal & jam mulai terlebih dahulu
+              </span>
+            </div>
+          </div>
+
+          <div class="order-form-group">
+            <label class="order-label" for="inputLokasi"
+              >Lokasi Pengantaran</label
+            >
+            <textarea
+              id="inputLokasi"
+              class="order-input"
+              rows="3"
+              placeholder="Contoh: Kuta Beach Hotel, Jl. Pantai Kuta No.1, Kuta - Bali"
+              style="resize: vertical; min-height: 80px"
+              oninput="clearFieldError('inputLokasi')"
+            ></textarea>
+          </div>
+
+          <div
+            id="step4-error"
+            style="
+              display: none;
+              color: #ff6b6b;
+              font-size: 0.85rem;
+              margin-bottom: 1rem;
+            "
+          ></div>
+
+          <div class="order-nav">
+            <button class="btn-prev" onclick="goStep(3)">← Kembali</button>
+            <button class="btn-next" onclick="goStep(5)">
+              Lihat Ringkasan →
+            </button>
+          </div>
+        </div>
+
+        <!-- ── STEP 5: Ringkasan & Kirim ── -->
+        <div class="order-step" id="step5">
+          <div class="order-step-title">Ringkasan Order</div>
+          <div class="order-step-sub">
+            Periksa kembali detail order sebelum dikirim.
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-title">📋 Detail Pemesanan</div>
+
+            <div class="summary-row">
+              <span class="summary-key">👤 Nama Penyewa</span>
+              <span class="summary-val" id="sum-nama">-</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-key">🛵 Unit Motor</span>
+              <span class="summary-val" id="sum-motor">-</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-key">📅 Durasi Sewa</span>
+              <span class="summary-val" id="sum-durasi">-</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-key">🗓️ Tanggal Mulai</span>
+              <span class="summary-val" id="sum-mulai">-</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-key">🗓️ Tanggal Selesai</span>
+              <span class="summary-val" id="sum-selesai">-</span>
+            </div>
+            <div class="summary-row" id="sum-addons-row">
+              <span class="summary-key">➕ Add-ons</span>
+              <span class="summary-val" id="sum-addons">-</span>
+            </div>
+            <div class="summary-row">
+              <span class="summary-key">📍 Lokasi Pengantaran</span>
+              <span class="summary-val" id="sum-lokasi">-</span>
+            </div>
+          </div>
+
+          <!-- Rincian biaya -->
+          <div class="summary-card">
+            <div class="summary-title">💰 Rincian Biaya</div>
+            <div class="summary-row">
+              <span class="summary-key">Sewa Motor</span>
+              <span class="summary-val" id="sum-biaya-motor">-</span>
+            </div>
+            <div class="summary-row" id="sum-biaya-addons-row">
+              <span class="summary-key">Total Add-ons</span>
+              <span class="summary-val" id="sum-biaya-addons">-</span>
+            </div>
+            <div class="summary-total-row">
+              <span class="summary-total-label">⚡ Estimasi Total</span>
+              <span class="summary-total-value" id="sum-total">-</span>
+            </div>
+          </div>
+
+          <p class="note-text">
+            * Estimasi total belum termasuk biaya antar-jemput. Konfirmasi resmi
+            & total final dari admin Mathew. 🙏
+          </p>
+
+          <div class="order-nav" style="margin-top: 1.5rem">
+            <button class="btn-prev" onclick="goStep(4)">← Ubah Data</button>
+            <button class="btn-send-wa" onclick="kirimWA()">
+              💬 Kirim via WhatsApp
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div>
+            <div class="footer-brand-name">Mathew Bali</div>
+            <div class="footer-brand-tagline">✦ Jimbaran & Nusa Dua, Bali</div>
+            <p class="footer-brand-desc">
+              Dua layanan terbaik untuk perjalanan Bali Anda - sewa motor dan
+              tour privat berpengalaman.
+            </p>
+            <div class="footer-socials">
+              <a
+                href="https://www.instagram.com/rentalmotoryuk"
+                target="_blank"
+                class="social-btn"
+                title="Instagram Rental Motor"
+                >📸</a
+              >
+              <a
+                href="https://www.tiktok.com/@rentalmotoryuk"
+                target="_blank"
+                class="social-btn"
+                title="TikTok Rental Motor"
+                >🎵</a
+              >
+              <a
+                href="https://www.instagram.com/mathewbalitour"
+                target="_blank"
+                class="social-btn"
+                title="Instagram Bali Tour"
+                >🌴</a
+              >
+              <a
+                href="https://www.tiktok.com/@mathewbalitour"
+                target="_blank"
+                class="social-btn"
+                title="TikTok Bali Tour"
+                >🎬</a
+              >
+              <a
+                href="https://wa.me/6289669747910"
+                target="_blank"
+                class="social-btn"
+                title="WhatsApp"
+                >💬</a
+              >
+              <a
+                href="https://maps.app.goo.gl/8phzsVdAwPXBimxo9"
+                target="_blank"
+                class="social-btn"
+                title="Google Maps"
+                >🗺️</a
+              >
+            </div>
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Rental Motor</div>
+            <a href="index.html">Beranda Motor</a>
+            <a href="index.html#armada">Lihat Armada</a>
+            <a href="order.html">Buat Order</a>
+            <a
+              href="https://wa.me/6289669747910?text=Halo,%20saya%20ingin%20sewa%20motor"
+              target="_blank"
+              >Pesan via WA</a
+            >
+            <a href="https://www.instagram.com/rentalmotoryuk" target="_blank"
+              >@rentalmotoryuk</a
+            >
+            <a href="https://linktr.ee/RentalMotorYuk" target="_blank"
+              >Linktree</a
+            >
+          </div>
+          <div class="footer-col">
+            <div class="footer-col-title">Bali Tour</div>
+            <a href="tour.html">Beranda Tour</a>
+            <a href="tour.html#packages">Paket Tour</a>
+            <a href="tour.html#armada-tour">Armada Kendaraan</a>
+            <a
+              href="https://wa.me/6289669747910?text=Halo,%20saya%20ingin%20info%20Bali%20Tour"
+              target="_blank"
+              >Custom Tour</a
+            >
+            <a href="https://www.instagram.com/mathewbalitour" target="_blank"
+              >@mathewbalitour</a
+            >
+            <a href="mailto:mathewbalitour@gmail.com">Email Kami</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span
+            >© 2025 RentalMotorYuk & Mathew Bali Tour. All rights
+            reserved.</span
+          >
+          <span>Made with ❤️ in Bali 🌴</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+      /* ═══════════════════════════════════
+         ORDER BUILDER LOGIC
+         ═══════════════════════════════════ */
+
+      // ── State ──
+      const state = {
+        motor: null, // { name, harian, mingguan, bulanan }
+        durType: "harian", // 'harian' | 'mingguan' | 'bulanan'
+        durQty: 1,
+        addons: {}, // { phoneholder: true, ... }
+        nama: "",
+        tglMulai: "",
+        jam: "10:00",
+        tglSelesai: "",
+        lokasi: "",
+      };
+
+      // ── Motor prices ──
+      const motorPrices = {
+        "Scoopy FI": { harian: 65000, mingguan: 390000, bulanan: 850000 },
+        "Scoopy ESP": { harian: 75000, mingguan: 460000, bulanan: 1050000 },
+        Genio: { harian: 75000, mingguan: 460000, bulanan: 1050000 },
+        "Vario 125cc": { harian: 75000, mingguan: 460000, bulanan: 1050000 },
+        Freego: { harian: 80000, mingguan: 490000, bulanan: 1100000 },
+        "Gear 125cc": { harian: 80000, mingguan: 490000, bulanan: 1100000 },
+        "Vario 150cc": { harian: 90000, mingguan: 560000, bulanan: 1250000 },
+        Fazzio: { harian: 90000, mingguan: 560000, bulanan: 1300000 },
+        "Vario 160cc": { harian: 100000, mingguan: 625000, bulanan: 1400000 },
+        "PCX 150cc": { harian: 120000, mingguan: 700000, bulanan: 1600000 },
+      };
+
+      // ── Addon definitions ──
+      const addonDefs = {
+        phoneholder: {
+          name: "Phone Holder",
+          icon: "📱",
+          flat: 10000,
+          perDay: false,
+        },
+        phonecloth: {
+          name: "Phone Cloth",
+          icon: "🧻",
+          flat: 5000,
+          perDay: false,
+        },
+        raincoat: { name: "Rain Coat", icon: "🧥", flat: 10000, perDay: false },
+        kidhelmet: {
+          name: "Kid Helmet",
+          icon: "⛑️",
+          flat: 20000,
+          perDay: false,
+        },
+        powerbank: { name: "Power Bank", icon: "🔋", flat: null, perDay: true },
+        charger: { name: "Charger HP", icon: "🔌", flat: 20000, perDay: false },
+      };
+
+      // ── Helpers ──
+      function fmt(num) {
+        return "Rp " + num.toLocaleString("id-ID");
+      }
+
+      function getDurDays() {
+        if (state.durType === "harian") return state.durQty;
+        if (state.durType === "mingguan") return state.durQty * 7;
+        if (state.durType === "bulanan") return state.durQty * 30;
+        return state.durQty;
+      }
+
+      function getMotorCost() {
+        if (!state.motor) return 0;
+        return motorPrices[state.motor][state.durType] * state.durQty;
+      }
+
+      function getPowerbankCost() {
+        // Power Bank: Rp 10.000/hari, Rp 50.000/7 hari (per minggu)
+        const days = getDurDays();
+        const weeks = Math.floor(days / 7);
+        const remDays = days % 7;
+        return weeks * 50000 + remDays * 10000;
+      }
+
+      function getAddonCost(key) {
+        if (!state.addons[key]) return 0;
+        if (key === "powerbank") return getPowerbankCost();
+        return addonDefs[key].flat;
+      }
+
+      function getTotalAddons() {
+        return Object.keys(addonDefs).reduce(
+          (sum, k) => sum + getAddonCost(k),
+          0,
+        );
+      }
+
+      function formatDateID(dateStr) {
+        if (!dateStr) return "-";
+        const d = new Date(dateStr + "T00:00:00");
+        const days = [
+          "Minggu",
+          "Senin",
+          "Selasa",
+          "Rabu",
+          "Kamis",
+          "Jumat",
+          "Sabtu",
+        ];
+        const months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "Mei",
+          "Jun",
+          "Jul",
+          "Ags",
+          "Sep",
+          "Okt",
+          "Nov",
+          "Des",
+        ];
+        return `${days[d.getDay()]}, ${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}/${d.getFullYear()}`;
+      }
+
+      function formatDateLong(dateStr) {
+        if (!dateStr) return "-";
+        const d = new Date(dateStr + "T00:00:00");
+        const days = [
+          "Minggu",
+          "Senin",
+          "Selasa",
+          "Rabu",
+          "Kamis",
+          "Jumat",
+          "Sabtu",
+        ];
+        const months = [
+          "Januari",
+          "Februari",
+          "Maret",
+          "April",
+          "Mei",
+          "Juni",
+          "Juli",
+          "Agustus",
+          "September",
+          "Oktober",
+          "November",
+          "Desember",
+        ];
+        return `${days[d.getDay()]}, ${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+      }
+
+      function calcEndDate() {
+        if (!state.tglMulai) return "";
+        const start = new Date(state.tglMulai + "T00:00:00");
+        const days = getDurDays();
+        const end = new Date(start);
+        end.setDate(end.getDate() + days);
+        return end.toISOString().split("T")[0];
+      }
+
+      // ── Step navigation ──
+      function goStep(n) {
+        // Validate before proceeding
+        if (n > 1 && !validateStep(n - 1)) return;
+
+        const steps = document.querySelectorAll(".order-step");
+        steps.forEach((s) => s.classList.remove("active"));
+        document.getElementById("step" + n).classList.add("active");
+
+        const dots = document.querySelectorAll(".progress-step");
+        dots.forEach((d, i) => {
+          d.classList.remove("active", "done");
+          if (i + 1 < n) d.classList.add("done");
+          if (i + 1 === n) d.classList.add("active");
+        });
+
+        // If going to step 5, populate summary
+        if (n === 5) buildSummary();
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function validateStep(n) {
+        if (n === 1) {
+          if (!state.motor) {
+            document.getElementById("step1-error").style.display = "block";
+            return false;
+          }
+          document.getElementById("step1-error").style.display = "none";
+        }
+        if (n === 4) {
+          const nama = document.getElementById("inputNama").value.trim();
+          const tgl = document.getElementById("inputTanggal").value;
+          const lok = document.getElementById("inputLokasi").value.trim();
+          const errEl = document.getElementById("step4-error");
+          if (!nama || !tgl || !lok) {
+            errEl.textContent =
+              "⚠️ Nama, tanggal mulai, dan lokasi pengantaran wajib diisi.";
+            errEl.style.display = "block";
+            if (!nama)
+              document.getElementById("inputNama").style.borderColor =
+                "#ff6b6b";
+            if (!tgl)
+              document.getElementById("inputTanggal").style.borderColor =
+                "#ff6b6b";
+            if (!lok)
+              document.getElementById("inputLokasi").style.borderColor =
+                "#ff6b6b";
+            return false;
+          }
+          errEl.style.display = "none";
+          state.nama = nama;
+          state.tglMulai = tgl;
+          state.jam = document.getElementById("inputJam").value || "10:00";
+          state.lokasi = lok;
+          state.tglSelesai = calcEndDate();
+        }
+        return true;
+      }
+
+      function clearFieldError(id) {
+        document.getElementById(id).style.borderColor = "";
+      }
+
+      // ── Step 1: Select motor ──
+      function selectMotor(el) {
+        document
+          .querySelectorAll(".motor-option")
+          .forEach((e) => e.classList.remove("selected"));
+        el.classList.add("selected");
+        state.motor = el.dataset.motor;
+        document.getElementById("step1-error").style.display = "none";
+        updatePricePreview();
+        updatePowerbankLabel();
+      }
+
+      // ── Step 2: Duration ──
+      function setDurationType(type) {
+        state.durType = type;
+        state.durQty = 1;
+        document.getElementById("durasiNum").textContent = "1";
+        ["harian", "mingguan", "bulanan"].forEach((t) => {
+          document
+            .getElementById("btn-" + t)
+            .classList.toggle("active", t === type);
+        });
+        const labels = {
+          harian: "Berapa hari?",
+          mingguan: "Berapa minggu?",
+          bulanan: "Berapa bulan?",
+        };
+        document.getElementById("duration-unit-label").textContent =
+          labels[type];
+        updatePricePreview();
+        updatePowerbankLabel();
+        updateEndDate();
+      }
+
+      function changeQty(delta) {
+        const min = 1;
+        state.durQty = Math.max(min, state.durQty + delta);
+        document.getElementById("durasiNum").textContent = state.durQty;
+        updatePricePreview();
+        updatePowerbankLabel();
+        updateEndDate();
+      }
+
+      function updatePricePreview() {
+        if (!state.motor) {
+          document.getElementById("pricePreviewVal").textContent = "-";
+          document.getElementById("pricePreviewDesc").textContent =
+            "Estimasi biaya sewa motor";
+          document.getElementById("pricePreviewNote").textContent = "";
+          return;
+        }
+        const cost = getMotorCost();
+        const unitLabels = {
+          harian: "hari",
+          mingguan: "minggu",
+          bulanan: "bulan",
+        };
+        document.getElementById("pricePreviewVal").textContent = fmt(cost);
+        document.getElementById("pricePreviewDesc").textContent =
+          `${state.motor} · ${state.durQty} ${unitLabels[state.durType]}`;
+        document.getElementById("pricePreviewNote").textContent =
+          `(${fmt(motorPrices[state.motor][state.durType])} × ${state.durQty})`;
+      }
+
+      // ── Step 3: Addons ──
+      function toggleAddon(el) {
+        el.classList.toggle("checked");
+        const key = el.id.replace("addon-", "");
+        state.addons[key] = el.classList.contains("checked");
+        const total = getTotalAddons();
+        const preview = document.getElementById("addonPreview");
+        if (total > 0) {
+          preview.style.display = "flex";
+          document.getElementById("addonPreviewVal").textContent = fmt(total);
+        } else {
+          preview.style.display = "none";
+        }
+      }
+
+      function updatePowerbankLabel() {
+        const days = getDurDays();
+        const cost = getPowerbankCost();
+        document.getElementById("powerbank-price-label").textContent =
+          days >= 7
+            ? `${fmt(cost)} (${Math.floor(days / 7)} mgg${days % 7 > 0 ? " + " + (days % 7) + " hr" : ""})`
+            : `${fmt(cost)} (${days} hari)`;
+      }
+
+      // ── Step 4: End date calc ──
+      function updateEndDate() {
+        const tgl = document.getElementById("inputTanggal").value;
+        const jam = document.getElementById("inputJam").value || "10:00";
+        state.tglMulai = tgl;
+        state.jam = jam;
+        if (!tgl) {
+          document.getElementById("tanggalSelesaiText").style.color =
+            "var(--text-muted)";
+          document.getElementById("tanggalSelesaiText").style.fontFamily =
+            "var(--font-body)";
+          document.getElementById("tanggalSelesaiText").textContent =
+            "Isi tanggal & jam mulai terlebih dahulu";
+          return;
+        }
+        const end = calcEndDate();
+        state.tglSelesai = end;
+        const txt = document.getElementById("tanggalSelesaiText");
+        txt.style.color = "var(--gold)";
+        txt.style.fontFamily = "var(--font-display)";
+        txt.style.fontWeight = "600";
+        txt.style.fontSize = "1rem";
+        txt.textContent = `${formatDateLong(end)} · ${jam} WIB`;
+      }
+
+      // ── Step 5: Build summary ──
+      function buildSummary() {
+        const durLabels = {
+          harian: "Harian",
+          mingguan: "Mingguan",
+          bulanan: "Bulanan",
+        };
+        const unitLabels = {
+          harian: "Hari",
+          mingguan: "Minggu",
+          bulanan: "Bulan",
+        };
+
+        document.getElementById("sum-nama").textContent = state.nama;
+        document.getElementById("sum-motor").textContent = state.motor;
+        document.getElementById("sum-durasi").textContent =
+          `${state.durQty} ${unitLabels[state.durType]} (${durLabels[state.durType]})`;
+        document.getElementById("sum-mulai").textContent =
+          `${formatDateLong(state.tglMulai)} · ${state.jam} WIB`;
+        document.getElementById("sum-selesai").textContent =
+          `${formatDateLong(state.tglSelesai)} · ${state.jam} WIB`;
+
+        // Addons
+        const checkedAddons = Object.keys(state.addons).filter(
+          (k) => state.addons[k],
+        );
+        if (checkedAddons.length) {
+          const lines = checkedAddons.map((k) => {
+            const cost = getAddonCost(k);
+            const label =
+              k === "powerbank"
+                ? `Power Bank (${getDurDays()} hari)`
+                : addonDefs[k].name;
+            return `${label} - ${fmt(cost)}`;
+          });
+          document.getElementById("sum-addons").innerHTML = lines.join("<br>");
+        } else {
+          document.getElementById("sum-addons").textContent = "Tidak ada";
+        }
+
+        document.getElementById("sum-lokasi").textContent = state.lokasi;
+
+        // Biaya
+        const motorCost = getMotorCost();
+        const addonCost = getTotalAddons();
+        const total = motorCost + addonCost;
+
+        document.getElementById("sum-biaya-motor").textContent = fmt(motorCost);
+        if (addonCost > 0) {
+          document.getElementById("sum-biaya-addons-row").style.display =
+            "flex";
+          document.getElementById("sum-biaya-addons").textContent =
+            fmt(addonCost);
+        } else {
+          document.getElementById("sum-biaya-addons-row").style.display =
+            "none";
+        }
+        document.getElementById("sum-total").textContent = fmt(total);
+      }
+
+      // ── Kirim WA ──
+      function kirimWA() {
+        const durLabels = {
+          harian: "Harian",
+          mingguan: "Mingguan",
+          bulanan: "Bulanan",
+        };
+        const unitLabels = {
+          harian: "Hari",
+          mingguan: "Minggu",
+          bulanan: "Bulan",
+        };
+
+        const checkedAddons = Object.keys(state.addons).filter(
+          (k) => state.addons[k],
+        );
+        let addonsLines = "";
+        if (checkedAddons.length) {
+          addonsLines = checkedAddons
+            .map((k) => {
+              const cost = getAddonCost(k);
+              const label =
+                k === "powerbank"
+                  ? `Power Bank (${getDurDays()} hari)`
+                  : addonDefs[k].name;
+              return `• ${label} - ${fmt(cost)}`;
+            })
+            .join("\n");
+        } else {
+          addonsLines = "• Tidak ada";
+        }
+
+        const motorCost = getMotorCost();
+        const addonCost = getTotalAddons();
+        const total = motorCost + addonCost;
+
+        const msg = `📋 *FORM PEMESANAN SEWA MOTOR*
+
+👤 *Nama Penyewa:* ${state.nama}
+🛵 *Unit Motor:* ${state.motor}
+📅 *Durasi Sewa:* ${state.durQty} ${unitLabels[state.durType]} (${durLabels[state.durType]})
+🗓️ *Tanggal Mulai:* ${formatDateID(state.tglMulai)} - ${state.jam} WIB
+🗓️ *Tanggal Selesai:* ${formatDateID(state.tglSelesai)} - ${state.jam} WIB
+➕ *Add-ons:*
+${addonsLines}
+📍 *Lokasi Pengantaran:* ${state.lokasi}
+
+---
+💰 *Rincian Biaya:*
+• Sewa Motor: ${fmt(motorCost)}${addonCost > 0 ? "\n• Total Add-ons: " + fmt(addonCost) : ""}
+💳 *ESTIMASI TOTAL: ${fmt(total)}*
+
+Mohon konfirmasi ketersediaan unit dan totalan resminya ya, Admin. Terima kasih! 🙏`;
+
+        const waUrl =
+          "https://wa.me/6289669747910?text=" + encodeURIComponent(msg);
+        window.open(waUrl, "_blank");
+      }
+
+      // ── Init ──
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set min date to today
+        const today = new Date().toISOString().split("T")[0];
+        document.getElementById("inputTanggal").min = today;
+        updatePricePreview();
+        updatePowerbankLabel();
+      });
+    </script>
+  </body>
+</html>
