@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Buat Order Sewa Motor - Rental Motor Yuk Bali</title>
-    <meta name="description" content="Buat order sewa motor Bali secara online. Pilih motor, durasi, add-ons, dan kirim langsung via WhatsApp ke Rental Motor Yuk." />
+    <meta
+      name="description"
+      content="Buat order sewa motor Bali secara online. Pilih motor, durasi, add-ons, dan kirim langsung via WhatsApp ke Rental Motor Yuk."
+    />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="logo/favicon.svg" />
@@ -13,17 +16,35 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://rentalmotoryuk.vercel.app/order.html" />
-    <meta property="og:title" content="Buat Order Sewa Motor - Rental Motor Yuk Bali" />
-    <meta property="og:description" content="Pilih motor, tentukan durasi & add-ons, lalu kirim pesanan langsung ke WhatsApp. Cepat, mudah, tanpa ribet." />
-    <meta property="og:image" content="https://rentalmotoryuk.vercel.app/logo/rentalmotoryuk-circle.webp" />
+    <meta
+      property="og:url"
+      content="https://rentalmotoryuk.vercel.app/order.html"
+    />
+    <meta
+      property="og:title"
+      content="Buat Order Sewa Motor - Rental Motor Yuk Bali"
+    />
+    <meta
+      property="og:description"
+      content="Pilih motor, tentukan durasi & add-ons, lalu kirim pesanan langsung ke WhatsApp. Cepat, mudah, tanpa ribet."
+    />
+    <meta
+      property="og:image"
+      content="https://rentalmotoryuk.vercel.app/logo/rentalmotoryuk-circle.webp"
+    />
     <meta property="og:image:width" content="400" />
     <meta property="og:image:height" content="400" />
     <meta property="og:locale" content="id_ID" />
     <meta property="og:site_name" content="Rental Motor Yuk" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Buat Order Sewa Motor - Rental Motor Yuk Bali" />
-    <meta name="twitter:image" content="https://rentalmotoryuk.vercel.app/logo/rentalmotoryuk-circle.webp" />
+    <meta
+      name="twitter:title"
+      content="Buat Order Sewa Motor - Rental Motor Yuk Bali"
+    />
+    <meta
+      name="twitter:image"
+      content="https://rentalmotoryuk.vercel.app/logo/rentalmotoryuk-circle.webp"
+    />
     <meta name="robots" content="noindex" />
     <meta name="theme-color" content="#E85D04" />
 
@@ -36,7 +57,10 @@
     <link rel="stylesheet" href="css/style.css" />
     <!-- Anti-flash theme init -->
     <script>
-      (function(){var t=localStorage.getItem('mathewbali-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();
+      (function () {
+        var t = localStorage.getItem("mathewbali-theme") || "dark";
+        document.documentElement.setAttribute("data-theme", t);
+      })();
     </script>
   </head>
   <body>
@@ -45,13 +69,22 @@
 ══════════════════════════════════════ -->
     <nav class="navbar" id="navbar">
       <a href="index.html" class="nav-brand">
-        <div class="nav-brand-logo" style="background:none;padding:0;">
-            <img src="logo/rentalmotoryuk-circle.webp" alt="Rental Motor Yuk" style="width:36px;height:36px;object-fit:cover;border-radius:50%;">
-          </div>
-          <div class="nav-brand-text">
-            <span class="nav-brand-name">Rental Motor Yuk</span>
-            <span class="nav-brand-sub">Part of Mathew Bali Tour</span>
-          </div>
+        <div class="nav-brand-logo" style="background: none; padding: 0">
+          <img
+            src="logo/rentalmotoryuk-circle.webp"
+            alt="Rental Motor Yuk"
+            style="
+              width: 36px;
+              height: 36px;
+              object-fit: cover;
+              border-radius: 50%;
+            "
+          />
+        </div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-name">Rental Motor Yuk</span>
+          <span class="nav-brand-sub">Part of Mathew Bali Tour</span>
+        </div>
       </a>
 
       <ul class="nav-links" id="navLinks">
@@ -67,9 +100,15 @@
             >WhatsApp</a
           >
         </li>
-              <li id="theme-toggle-wrap">
-          <div id="theme-toggle-track" onclick="toggleTheme()" title="Toggle light/dark mode">
-            <div id="theme-toggle-thumb"><span id="theme-toggle-icon">🌙</span></div>
+        <li id="theme-toggle-wrap">
+          <div
+            id="theme-toggle-track"
+            onclick="toggleTheme()"
+            title="Toggle light/dark mode"
+          >
+            <div id="theme-toggle-thumb">
+              <span id="theme-toggle-icon">🌙</span>
+            </div>
           </div>
         </li>
       </ul>
@@ -370,31 +409,51 @@
           </div>
 
           <div class="addon-checkbox-grid">
-            <div class="addon-check-item" id="addon-phoneholder" onclick="toggleAddon(this)">
+            <div
+              class="addon-check-item"
+              id="addon-phoneholder"
+              onclick="toggleAddon(this)"
+            >
               <div class="addon-check-mark">✓</div>
               <span class="addon-check-icon">📱</span>
               <div class="addon-check-name">Phone Holder</div>
               <div class="addon-check-price">Rp 10.000</div>
             </div>
-            <div class="addon-check-item" id="addon-phonecloth" onclick="toggleAddon(this)">
+            <div
+              class="addon-check-item"
+              id="addon-phonecloth"
+              onclick="toggleAddon(this)"
+            >
               <div class="addon-check-mark">✓</div>
               <span class="addon-check-icon">🧻</span>
               <div class="addon-check-name">Phone Cloth</div>
               <div class="addon-check-price">Rp 5.000</div>
             </div>
-            <div class="addon-check-item" id="addon-raincoat" onclick="toggleAddon(this)">
+            <div
+              class="addon-check-item"
+              id="addon-raincoat"
+              onclick="toggleAddon(this)"
+            >
               <div class="addon-check-mark">✓</div>
               <span class="addon-check-icon">🧥</span>
               <div class="addon-check-name">Rain Coat</div>
               <div class="addon-check-price">Rp 10.000</div>
             </div>
-            <div class="addon-check-item" id="addon-kidhelmet" onclick="toggleAddon(this)">
+            <div
+              class="addon-check-item"
+              id="addon-kidhelmet"
+              onclick="toggleAddon(this)"
+            >
               <div class="addon-check-mark">✓</div>
               <span class="addon-check-icon">⛑️</span>
               <div class="addon-check-name">Kid Helmet</div>
               <div class="addon-check-price">Rp 20.000</div>
             </div>
-            <div class="addon-check-item" id="addon-powerbank" onclick="toggleAddon(this)">
+            <div
+              class="addon-check-item"
+              id="addon-powerbank"
+              onclick="toggleAddon(this)"
+            >
               <div class="addon-check-mark">✓</div>
               <span class="addon-check-icon">🔋</span>
               <div class="addon-check-name">Power Bank</div>
@@ -402,7 +461,11 @@
                 Rp 10.000 / hari
               </div>
             </div>
-            <div class="addon-check-item" id="addon-charger" onclick="toggleAddon(this)">
+            <div
+              class="addon-check-item"
+              id="addon-charger"
+              onclick="toggleAddon(this)"
+            >
               <div class="addon-check-mark">✓</div>
               <span class="addon-check-icon">🔌</span>
               <div class="addon-check-name">Charger HP</div>
@@ -1145,23 +1208,34 @@
         const addonCost = getTotalAddons();
         const total = motorCost + addonCost;
 
-        const msg = `📋 *FORM PEMESANAN SEWA MOTOR*
+        const e = {
+          clipboard: "\uD83D\uDCCB",
+          person: "\uD83D\uDC64",
+          scooter: "\uD83D\uDEF5",
+          calendar: "\uD83D\uDCC5",
+          pin: "\uD83D\uDCCD",
+          plus: "\u2795",
+          money: "\uD83D\uDCB0",
+          card: "\uD83D\uDCB3",
+          pray: "\uD83D\uDE4F",
+        };
+        const msg = `${e.clipboard} *FORM PEMESANAN SEWA MOTOR*
 
-👤 *Nama Penyewa:* ${state.nama}
-🛵 *Unit Motor:* ${state.motor}
-📅 *Durasi Sewa:* ${state.durQty} ${unitLabels[state.durType]} (${durLabels[state.durType]})
-🗓️ *Tanggal Mulai:* ${formatDateID(state.tglMulai)} - ${state.jam} WIB
-🗓️ *Tanggal Selesai:* ${formatDateID(state.tglSelesai)} - ${state.jam} WIB
-➕ *Add-ons:*
+${e.person} *Nama Penyewa:* ${state.nama}
+${e.scooter} *Unit Motor:* ${state.motor}
+${e.calendar} *Durasi Sewa:* ${state.durQty} ${unitLabels[state.durType]} (${durLabels[state.durType]})
+${e.calendar} *Tanggal Mulai:* ${formatDateID(state.tglMulai)} - ${state.jam} WIB
+${e.calendar} *Tanggal Selesai:* ${formatDateID(state.tglSelesai)} - ${state.jam} WIB
+${e.plus} *Add-ons:*
 ${addonsLines}
-📍 *Lokasi Pengantaran:* ${state.lokasi}
+${e.pin} *Lokasi Pengantaran:* ${state.lokasi}
 
 ---
-💰 *Rincian Biaya:*
+${e.money} *Rincian Biaya:*
 • Sewa Motor: ${fmt(motorCost)}${addonCost > 0 ? "\n• Total Add-ons: " + fmt(addonCost) : ""}
-💳 *ESTIMASI TOTAL: ${fmt(total)}*
+${e.card} *ESTIMASI TOTAL: ${fmt(total)}*
 
-Mohon konfirmasi ketersediaan unit dan totalan resminya ya, Admin. Terima kasih! 🙏`;
+Mohon konfirmasi ketersediaan unit dan totalan resminya ya, Admin. Terima kasih! ${e.pray}`;
 
         const waUrl =
           "https://wa.me/6289669747910?text=" + encodeURIComponent(msg);
