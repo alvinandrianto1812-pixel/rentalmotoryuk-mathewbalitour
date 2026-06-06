@@ -23,7 +23,7 @@
   --gold-dim: rgba(201, 168, 76, 0.15);
   --gold-border: rgba(201, 168, 76, 0.25);
 
-  /* Neutral - DARK (default) */
+  /* Neutral — DARK (default) */
   --white: #ffffff;
   --off-white: #f5f0e8;
   --dark-bg: #080808;
@@ -51,10 +51,10 @@
 }
 
 /* ═══════════════════════════════════════════════════
-   LIGHT MODE - Luxury Ivory & Gold
+   LIGHT MODE — Luxury Ivory & Gold
    ═══════════════════════════════════════════════════ */
 [data-theme="light"] {
-  /* Backgrounds - warm ivory hierarchy */
+  /* Backgrounds — warm ivory hierarchy */
   --dark-bg: #f7f3ee;
   --dark-surface: #efe9e0;
   --dark-card: #ffffff;
@@ -65,28 +65,28 @@
   --dark-border: rgba(0, 0, 0, 0.08);
   --dark-border-hover: rgba(0, 0, 0, 0.18);
 
-  /* Text - deep charcoal */
+  /* Text — deep charcoal */
   --white: #1a1209;
   --text-primary: rgba(26, 18, 9, 0.9);
   --text-secondary: rgba(26, 18, 9, 0.55);
   --text-muted: rgba(26, 18, 9, 0.35);
 
-  /* Gold - slightly richer in light */
+  /* Gold — slightly richer in light */
   --gold: #a07828;
   --gold-light: #c9a84c;
   --gold-dim: rgba(160, 120, 40, 0.1);
   --gold-border: rgba(160, 120, 40, 0.22);
 
-  /* Motor accent - deeper orange on light */
+  /* Motor accent — deeper orange on light */
   --motor-gold: #c94f00;
   --motor-primary-dim: rgba(232, 93, 4, 0.1);
 
-  /* Tour accent - deeper green on light */
+  /* Tour accent — deeper green on light */
   --tour-green: #0b6e4f;
   --tour-primary-dim: rgba(11, 110, 79, 0.1);
 }
 
-/* ── Global theme transition - hanya elemen utama, bukan semua elemen ── */
+/* ── Global theme transition — hanya elemen utama, bukan semua elemen ── */
 body,
 .navbar,
 .nav-links,
@@ -2505,8 +2505,11 @@ footer {
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  gap: 4px;
   font-size: 0.78rem;
   color: var(--text-muted);
 }
@@ -3302,7 +3305,7 @@ footer {
 }
 
 /* ═══════════════════════════════════════════════════
-   FLUID RESPONSIVE - scales at all zoom levels
+   FLUID RESPONSIVE — scales at all zoom levels
    ═══════════════════════════════════════════════════ */
 
 /* Fluid container padding */
@@ -3311,7 +3314,7 @@ footer {
   padding-right: clamp(1rem, 3vw, 2rem);
 }
 
-/* Armada grid - fluid columns */
+/* Armada grid — fluid columns */
 .armada-grid {
   grid-template-columns: repeat(
     auto-fill,
@@ -3319,7 +3322,7 @@ footer {
   );
 }
 
-/* Motor selector - fluid */
+/* Motor selector — fluid */
 .motor-selector-grid {
   grid-template-columns: repeat(
     auto-fill,
@@ -3327,7 +3330,7 @@ footer {
   );
 }
 
-/* Addon grid - fluid */
+/* Addon grid — fluid */
 .addon-checkbox-grid {
   grid-template-columns: repeat(
     auto-fill,
@@ -3335,7 +3338,7 @@ footer {
   );
 }
 
-/* Features grid - fluid */
+/* Features grid — fluid */
 .features-grid {
   grid-template-columns: repeat(
     auto-fill,
@@ -3343,7 +3346,7 @@ footer {
   );
 }
 
-/* Testi grid - fluid */
+/* Testi grid — fluid */
 .testi-grid {
   grid-template-columns: repeat(
     auto-fill,
