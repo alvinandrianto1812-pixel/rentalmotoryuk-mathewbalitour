@@ -3,4 +3,4 @@ Allow: /
 Disallow: /order
 Disallow: /tour-order
 
-Sitemap: https://mathewbali.vercel.app/sitemap.xml
+Sitemap: https://rentalmotoryuk.vercel.app/sitemap.xml

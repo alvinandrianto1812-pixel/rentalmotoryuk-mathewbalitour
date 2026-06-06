@@ -32,7 +32,7 @@
   // Expose globally (called by onclick in HTML)
   window.toggleTheme = toggleTheme;
 
-  // Init on load — respect saved preference, fallback to dark
+  // Init on load - respect saved preference, fallback to dark
   const saved = localStorage.getItem(STORAGE_KEY) || "dark";
   // Apply immediately to avoid flash
   document.documentElement.setAttribute("data-theme", saved);
